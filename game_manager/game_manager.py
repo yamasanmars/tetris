@@ -362,6 +362,7 @@ class Game_Manager(QMainWindow):
                     self.nextMove = nextMove
                 else:
                     self.nextMove = BLOCK_CONTROLLER.GetNextMove(nextMove, GameStatus)
+                    print("self.nextMove = ", self.nextMove)
 
                 if self.mode in ("keyboard", "gamepad"):
                     # ignore nextMove, for keyboard/gamepad controll

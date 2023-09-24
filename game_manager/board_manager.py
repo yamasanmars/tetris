@@ -75,16 +75,21 @@ class Shape(object):
         # 方向によってテトリミノ形状座標タプルを回転させる
         if direction == 0 or self.shape == Shape.shapeO:
             return ((x, y) for x, y in tmpCoords)
-
+        
+        # 90°反時計回りに回転   
         if direction == 1:
             return ((-y, x) for x, y in tmpCoords)
-
+        
+        # 180°反時計回りに回転
+        # 点対称な図形かそうでないかで処理が変わる
         if direction == 2:
             if self.shape in (Shape.shapeI, Shape.shapeZ, Shape.shapeS):
                 return ((x, y) for x, y in tmpCoords)
             else:
                 return ((-x, -y) for x, y in tmpCoords)
-
+        
+        # 270°反時計回りに回転
+        # 点対称な図形かそうでないかで処理が変わる
         if direction == 3:
             if self.shape in (Shape.shapeI, Shape.shapeZ, Shape.shapeS):
                 return ((-y, x) for x, y in tmpCoords)
@@ -186,8 +191,6 @@ class BoardData(object):
     #######################################
     def init_art_config(self, art_config):
         # open colorTable, nextShapeIndexList config file for art
-        if art_config == "default.json":
-            return
         try:
             import json
             art_config_filepath = art_config
@@ -204,9 +207,8 @@ class BoardData(object):
             self.nextShapeIndexList = [ block_order[ii][0] for ii in range(len(block_order))]
             self.nextShapeIndexListDXY = [[block_order[ii][1],block_order[ii][2],block_order[ii][3]] for ii in range(len(block_order))]
         except Exception as e:
-            print(e)
-            exit()
-            #pass
+            #print(e)
+            pass
 
     #######################################
     ## 画面ボードデータを返す
