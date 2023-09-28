@@ -2,13 +2,13 @@
 common:
   #### 学習用Weight
   ## File 指定
-  ft_weight: outputs/2023-09-13-19-50-57/trained_model/best_weight.pt
+  ft_weight: outputs/2023-09-24-20-37-59/trained_model/best_weight.pt
   log_path: tensorboard
   time_disp: False
   #### 推論用Weight
   # File 指定
   #predict_weight: outputs/2023-08-26-23-25-10/trained_model/best_weight.pt
-  predict_weight: outputs/2023-09-13-19-50-57/trained_model/best_weight.pt
+  predict_weight: outputs/2023-09-24-20-37-59/trained_model/best_weight.pt
 
   #### 第2model 有効
   weight2_available: False
